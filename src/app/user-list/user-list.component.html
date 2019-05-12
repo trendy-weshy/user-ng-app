@@ -5,9 +5,19 @@
   </div>
 
   <div class="user-list-content">
-    <div class="user">
-      <div class="avatar"></div>
-      <div class="content"></div>
+    <div class="user" *ngFor="let user of users">
+      <div class="avatar">
+        <img [src]="user.avatar" />
+      </div>
+      <div class="content">
+        <p> {{ user.first_name }} {{ user.last_name }} </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-list-pagination">
+    <div class="page" *ngFor="let page of pages; let i = index" (click)="getlistOfUsers(i+1)">
+      <p>{{ i+1 }}</p>
     </div>
   </div>
 

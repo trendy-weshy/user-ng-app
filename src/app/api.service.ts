@@ -11,12 +11,15 @@ export interface User {
   avatar: string;
 }
 
-export interface UserListResult {
-  data: User[];
+export interface PaginationData {
   page: number;
   per_page: number;
   total: number;
   total_pages: number;
+}
+
+export interface UserListResult extends PaginationData {
+  data: User[];
 }
 
 @Injectable({
