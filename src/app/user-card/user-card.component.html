@@ -1,3 +1,14 @@
-<p>
-  user-card works!
-</p>
+<div class="user-information">
+  <div class="toolbar">
+    <span class="back-btn" [routerLink]="['/users']"> Go Back </span>
+  </div>
+  <div class="user-title">
+    <img [src]="user?.avatar" />
+    <p>{{ user?.first_name }} {{ user?.last_name }}</p>
+  </div>
+  <div class="user-body">
+    <span class="content">
+      Email Address: <b>{{ user?.email }}</b>
+    </span>
+  </div>
+</div>

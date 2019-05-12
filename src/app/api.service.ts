@@ -29,7 +29,7 @@ export class ApiService {
 
   private endpoints = {
     users: (page: number) => `${environment.API_URL}/?page=${page}`,
-    user: (id: number) => `${environment.API_URL}/${id}/`
+    user: (id: number) => `${environment.API_URL}/${id}`
   };
 
   constructor(private http: HttpClient) {}
@@ -38,8 +38,8 @@ export class ApiService {
     return this.http.get<UserListResult>(this.endpoints.users(page));
   }
 
-  public getUser(id: number): Observable<UserListResult> {
-    return this.http.get<UserListResult>(this.endpoints.user(id));
+  public getUser(id: number): Observable<{ data: User }> {
+    return this.http.get<{ data: User }>(this.endpoints.user(id));
   }
 
 }
